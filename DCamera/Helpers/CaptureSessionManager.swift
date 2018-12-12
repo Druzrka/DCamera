@@ -82,18 +82,16 @@ class CaptureSessionManager: NSObject {
       }
     }
     
-    guard let bestFormat = bestFormat, let bestFrameRange = bestFrameRateRange else {
-      return
-    }
-    
-    do {
-      try device.lockForConfiguration()
-      device.activeFormat = bestFormat
-      device.activeVideoMinFrameDuration = bestFrameRange.minFrameDuration
-      device.activeVideoMaxFrameDuration = bestFrameRange.maxFrameDuration
-      device.unlockForConfiguration()
-    } catch {
-      print(error)
+    if let bestFormat = bestFormat, let bestFrameRange = bestFrameRateRange {
+      do {
+        try device.lockForConfiguration()
+        device.activeFormat = bestFormat
+        device.activeVideoMinFrameDuration = bestFrameRange.minFrameDuration
+        device.activeVideoMaxFrameDuration = bestFrameRange.maxFrameDuration
+        device.unlockForConfiguration()
+      } catch {
+        print(error)
+      }
     }
   }
 }

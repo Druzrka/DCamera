@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		435A185D21C0F3C30070B422 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A185C21C0F3C30070B422 /* BaseViewController.swift */; };
 		435A186121C0F4820070B422 /* CaptureSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A186021C0F4820070B422 /* CaptureSessionManager.swift */; };
-		435BAFE021BFC4E300435A07 /* OpenCVWrapperm.mm in Sources */ = {isa = PBXBuildFile; fileRef = 435BAFDF21BFC4E300435A07 /* OpenCVWrapperm.mm */; };
+		435A186421C10A7D0070B422 /* RectangleDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A186321C10A7D0070B422 /* RectangleDetector.swift */; };
+		435A186721C116A20070B422 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A186621C116A20070B422 /* TestViewController.swift */; };
 		43F894A421BEBD8200E762BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F894A321BEBD8200E762BC /* AppDelegate.swift */; };
 		43F894A621BEBD8200E762BC /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F894A521BEBD8200E762BC /* CameraViewController.swift */; };
 		43F894A921BEBD8200E762BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43F894A721BEBD8200E762BC /* Main.storyboard */; };
@@ -21,9 +22,8 @@
 /* Begin PBXFileReference section */
 		435A185C21C0F3C30070B422 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		435A186021C0F4820070B422 /* CaptureSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSessionManager.swift; sourceTree = "<group>"; };
-		435BAFDE21BFC4E300435A07 /* OpenCVWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVWrapper.h; sourceTree = "<group>"; };
-		435BAFDF21BFC4E300435A07 /* OpenCVWrapperm.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapperm.mm; sourceTree = "<group>"; };
-		435BAFE121BFC50900435A07 /* DCamera-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DCamera-Bridging-Header.h"; sourceTree = "<group>"; };
+		435A186321C10A7D0070B422 /* RectangleDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleDetector.swift; sourceTree = "<group>"; };
+		435A186621C116A20070B422 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		43F894A021BEBD8200E762BC /* DCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43F894A321BEBD8200E762BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43F894A521BEBD8200E762BC /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				435A186021C0F4820070B422 /* CaptureSessionManager.swift */,
+				435A186321C10A7D0070B422 /* RectangleDetector.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -58,6 +59,7 @@
 			children = (
 				43F894A521BEBD8200E762BC /* CameraViewController.swift */,
 				435A185C21C0F3C30070B422 /* BaseViewController.swift */,
+				435A186621C116A20070B422 /* TestViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -95,16 +97,6 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		435BAFD221BFC08400435A07 /* Bridging */ = {
-			isa = PBXGroup;
-			children = (
-				435BAFDE21BFC4E300435A07 /* OpenCVWrapper.h */,
-				435BAFDF21BFC4E300435A07 /* OpenCVWrapperm.mm */,
-				435BAFE121BFC50900435A07 /* DCamera-Bridging-Header.h */,
-			);
-			path = Bridging;
-			sourceTree = "<group>";
-		};
 		43F8949721BEBD8200E762BC = {
 			isa = PBXGroup;
 			children = (
@@ -124,7 +116,6 @@
 		43F894A221BEBD8200E762BC /* DCamera */ = {
 			isa = PBXGroup;
 			children = (
-				435BAFD221BFC08400435A07 /* Bridging */,
 				435BAFCD21BFBFEC00435A07 /* Model */,
 				435BAFCC21BFBFE200435A07 /* View */,
 				435BAFCB21BFBFDC00435A07 /* Controller */,
@@ -208,10 +199,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				435A186721C116A20070B422 /* TestViewController.swift in Sources */,
 				435A185D21C0F3C30070B422 /* BaseViewController.swift in Sources */,
 				43F894A621BEBD8200E762BC /* CameraViewController.swift in Sources */,
 				43F894A421BEBD8200E762BC /* AppDelegate.swift in Sources */,
-				435BAFE021BFC4E300435A07 /* OpenCVWrapperm.mm in Sources */,
+				435A186421C10A7D0070B422 /* RectangleDetector.swift in Sources */,
 				43F894B621BEC73E00E762BC /* PreviewView.swift in Sources */,
 				435A186121C0F4820070B422 /* CaptureSessionManager.swift in Sources */,
 			);
@@ -365,7 +357,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DCamera",
-					"$(PROJECT_DIR)/DCamera/Bridging",
 				);
 				INFOPLIST_FILE = DCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -374,7 +365,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = D.DCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "DCamera/Bridging/DCamera-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -391,7 +382,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DCamera",
-					"$(PROJECT_DIR)/DCamera/Bridging",
 				);
 				INFOPLIST_FILE = DCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -400,7 +390,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = D.DCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "DCamera/Bridging/DCamera-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

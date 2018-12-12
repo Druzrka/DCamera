@@ -12,7 +12,6 @@ import AVFoundation
 class CameraViewController: BaseViewController {
   
   @IBOutlet weak var previewView: PreviewView!
-  @IBOutlet weak var imageView: UIImageView!
   
   override var prefersStatusBarHidden: Bool {
     return true
