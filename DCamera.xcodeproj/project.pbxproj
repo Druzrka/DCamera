@@ -11,6 +11,9 @@
 		435A186121C0F4820070B422 /* CaptureSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A186021C0F4820070B422 /* CaptureSessionManager.swift */; };
 		435A186421C10A7D0070B422 /* RectangleDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A186321C10A7D0070B422 /* RectangleDetector.swift */; };
 		435A186721C116A20070B422 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A186621C116A20070B422 /* TestViewController.swift */; };
+		435A186A21C141D60070B422 /* Quadrilateral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A186921C141D60070B422 /* Quadrilateral.swift */; };
+		435A186D21C14CA50070B422 /* CGPoint+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A186C21C14CA50070B422 /* CGPoint+Utils.swift */; };
+		435A186F21C14E160070B422 /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A186E21C14E160070B422 /* Array+Utils.swift */; };
 		43F894A421BEBD8200E762BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F894A321BEBD8200E762BC /* AppDelegate.swift */; };
 		43F894A621BEBD8200E762BC /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F894A521BEBD8200E762BC /* CameraViewController.swift */; };
 		43F894A921BEBD8200E762BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43F894A721BEBD8200E762BC /* Main.storyboard */; };
@@ -24,6 +27,9 @@
 		435A186021C0F4820070B422 /* CaptureSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSessionManager.swift; sourceTree = "<group>"; };
 		435A186321C10A7D0070B422 /* RectangleDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleDetector.swift; sourceTree = "<group>"; };
 		435A186621C116A20070B422 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		435A186921C141D60070B422 /* Quadrilateral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quadrilateral.swift; sourceTree = "<group>"; };
+		435A186C21C14CA50070B422 /* CGPoint+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Utils.swift"; sourceTree = "<group>"; };
+		435A186E21C14E160070B422 /* Array+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Utils.swift"; sourceTree = "<group>"; };
 		43F894A021BEBD8200E762BC /* DCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43F894A321BEBD8200E762BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43F894A521BEBD8200E762BC /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +60,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		435A186B21C14C8C0070B422 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				435A186C21C14CA50070B422 /* CGPoint+Utils.swift */,
+				435A186E21C14E160070B422 /* Array+Utils.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		435BAFCB21BFBFDC00435A07 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +90,7 @@
 		435BAFCD21BFBFEC00435A07 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				435A186921C141D60070B422 /* Quadrilateral.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -120,6 +136,7 @@
 				435BAFCC21BFBFE200435A07 /* View */,
 				435BAFCB21BFBFDC00435A07 /* Controller */,
 				435BAFCF21BFC00700435A07 /* Storyboards */,
+				435A186B21C14C8C0070B422 /* Extensions */,
 				435A185F21C0F4420070B422 /* Helpers */,
 				435BAFCE21BFBFF900435A07 /* Other */,
 				43F894AF21BEBD8400E762BC /* Info.plist */,
@@ -199,10 +216,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				435A186A21C141D60070B422 /* Quadrilateral.swift in Sources */,
+				435A186F21C14E160070B422 /* Array+Utils.swift in Sources */,
 				435A186721C116A20070B422 /* TestViewController.swift in Sources */,
 				435A185D21C0F3C30070B422 /* BaseViewController.swift in Sources */,
 				43F894A621BEBD8200E762BC /* CameraViewController.swift in Sources */,
 				43F894A421BEBD8200E762BC /* AppDelegate.swift in Sources */,
+				435A186D21C14CA50070B422 /* CGPoint+Utils.swift in Sources */,
 				435A186421C10A7D0070B422 /* RectangleDetector.swift in Sources */,
 				43F894B621BEC73E00E762BC /* PreviewView.swift in Sources */,
 				435A186121C0F4820070B422 /* CaptureSessionManager.swift in Sources */,

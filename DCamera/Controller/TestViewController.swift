@@ -23,10 +23,9 @@ class TestViewController: UIViewController {
   private func setupImageView() {
     
     imageView.backgroundColor = .blue
-    imageView.contentMode = .scaleAspectFill
+    imageView.contentMode = .scaleAspectFit
     
-    let scale = image.size.height / image.size.width
-    let height = view.frame.width * scale
+    let height = view.frame.height
     let width = view.frame.width
     
     imageView.frame = CGRect(x: 0, y: 0, width: width, height: height)
@@ -39,22 +38,29 @@ class TestViewController: UIViewController {
     
     let detectRequest = VNDetectRectanglesRequest { req, err in
       
-      guard let observation = req.results?[1] as? VNRectangleObservation else { return }
+      guard let observations = req.results as? [VNRectangleObservation] else { return }
       
-      let points = [observation.bottomLeft, observation.topRight, observation.bottomRight, observation.topLeft]
+      self.processObservations(observations)
       
-      let circle = UIImage(named: "circle")!
-      var tempImage = self.image
+//      guard let observations = req.results as? [VNRectangleObservation] else {
+//        return
+//      }
       
-      for point in points {
-        let x = point.x * self.image.size.width
-        let y = (1 - point.y) * self.image.size.height
-        let size: CGFloat = 30.0
-        
-        tempImage = tempImage.image(byDrawingImage: circle, inRect: CGRect(x: x - size / 2, y: y - size / 2, width: size, height: size))
-      }
-      
-      self.imageView.image = tempImage
+//      for index in 0..<3 {
+//        guard let observation = req.results?[index] as? VNRectangleObservation else { return }
+//
+
+//
+//        let imageWidth = imageBottomRight.x - imageBottomLeft.x
+//        let imageHeight = imageBottomRight.y - imageTopRight.y
+//        let imageRect = CGRect(x: imageTopLeft.x, y: imageTopLeft.y, width: imageWidth, height: imageHeight)
+//
+//        let viewRect = self.imageView.convertRect(fromImageRect: imageRect)
+//
+//        let view1 = UIView(frame: viewRect)
+//        view1.backgroundColor = UIColor.red.withAlphaComponent(0.3)
+//        self.view.addSubview(view1)
+//      }
     }
     
     detectRequest.maximumObservations = 8
@@ -66,6 +72,35 @@ class TestViewController: UIViewController {
     } catch {
       print(error)
     }
+  }
+  
+  private func processObservations(_ observations: [VNRectangleObservation]) {
+    
+    var quads = [Quadrilateral]()
+    for observation in observations {
+      let topLeft = CGPoint(x: observation.topLeft.x * self.image.size.width,
+                                 y: (1 - observation.topLeft.y) * self.image.size.height)
+      let bottomLeft = CGPoint(x: observation.bottomLeft.x * self.image.size.width,
+                                    y: (1 - observation.bottomLeft.y) * self.image.size.height)
+      let topRight = CGPoint(x: observation.topRight.x * self.image.size.width,
+                                  y: (1 - observation.topRight.y) * self.image.size.height)
+      let bottomRight = CGPoint(x: observation.bottomRight.x * self.image.size.width,
+                                     y: (1 - observation.bottomRight.y) * self.image.size.height)
+      
+      let quad = Quadrilateral(topLeft: topLeft,
+                           bottomLeft: bottomLeft,
+                           topRight: topRight,
+                           bottomRight: bottomRight)
+      quads.append(quad)
+    }
+    
+    guard let biggestQuad = quads.biggest() else { return }
+    let imageRect = CGRect(origin: biggestQuad.topLeft, size: biggestQuad.size)
+    let viewRect = imageView.convertRect(fromImageRect: imageRect)
+    
+    let view1 = UIView(frame: viewRect)
+    view1.backgroundColor = UIColor.red.withAlphaComponent(0.3)
+    self.view.addSubview(view1)
   }
 }
 
