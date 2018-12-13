@@ -9,6 +9,10 @@
 import UIKit
 import AVFoundation
 
+protocol CaputureSessionManagerDelegate: AnyObject {
+  func didDetectQuad(quad: Quadrilateral?, imageSize: CGSize)
+}
+
 class CaptureSessionManager: NSObject {
   
   private let captureSession = AVCaptureSession()
@@ -16,6 +20,9 @@ class CaptureSessionManager: NSObject {
     let queue = DispatchQueue(label: "Output data queue")
     return queue
   }()
+  let rectangeDetector = RectangleDetector()
+  
+  weak var delegate: CaputureSessionManagerDelegate?
   
   init(previewLayer: AVCaptureVideoPreviewLayer) {
     super.init()
@@ -100,6 +107,9 @@ extension CaptureSessionManager: AVCaptureVideoDataOutputSampleBufferDelegate {
   func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
     let imageBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)!
     let ciImage: CIImage = CIImage(cvImageBuffer: imageBuffer, options: [CIImageOption.applyOrientationProperty: 1])
-    let image: UIImage = UIImage(ciImage: ciImage, scale: 1.0, orientation: .up)
+  
+    rectangeDetector.detectRectangle(in: ciImage) { quad in
+      self.delegate?.didDetectQuad(quad: quad, imageSize: ciImage.extent.size)
+    }
   }
 }

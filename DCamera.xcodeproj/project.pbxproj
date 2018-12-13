@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4353B23521C29B0B001C9CFA /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4353B23421C29B0B001C9CFA /* UIImageView+Utils.swift */; };
+		4353B23721C29B25001C9CFA /* UIImage+Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4353B23621C29B25001C9CFA /* UIImage+Drawing.swift */; };
 		435A185D21C0F3C30070B422 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A185C21C0F3C30070B422 /* BaseViewController.swift */; };
 		435A186121C0F4820070B422 /* CaptureSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A186021C0F4820070B422 /* CaptureSessionManager.swift */; };
 		435A186421C10A7D0070B422 /* RectangleDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A186321C10A7D0070B422 /* RectangleDetector.swift */; };
@@ -20,9 +22,12 @@
 		43F894AB21BEBD8400E762BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43F894AA21BEBD8400E762BC /* Assets.xcassets */; };
 		43F894AE21BEBD8400E762BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43F894AC21BEBD8400E762BC /* LaunchScreen.storyboard */; };
 		43F894B621BEC73E00E762BC /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F894B521BEC73E00E762BC /* PreviewView.swift */; };
+		43FF14A521C2AAD600B55DBB /* QuadrilateralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FF14A421C2AAD600B55DBB /* QuadrilateralView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4353B23421C29B0B001C9CFA /* UIImageView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Utils.swift"; sourceTree = "<group>"; };
+		4353B23621C29B25001C9CFA /* UIImage+Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Drawing.swift"; sourceTree = "<group>"; };
 		435A185C21C0F3C30070B422 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		435A186021C0F4820070B422 /* CaptureSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSessionManager.swift; sourceTree = "<group>"; };
 		435A186321C10A7D0070B422 /* RectangleDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleDetector.swift; sourceTree = "<group>"; };
@@ -38,6 +43,7 @@
 		43F894AD21BEBD8400E762BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43F894AF21BEBD8400E762BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43F894B521BEC73E00E762BC /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		43FF14A421C2AAD600B55DBB /* QuadrilateralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadrilateralView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +71,8 @@
 			children = (
 				435A186C21C14CA50070B422 /* CGPoint+Utils.swift */,
 				435A186E21C14E160070B422 /* Array+Utils.swift */,
+				4353B23421C29B0B001C9CFA /* UIImageView+Utils.swift */,
+				4353B23621C29B25001C9CFA /* UIImage+Drawing.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -83,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				43F894B521BEC73E00E762BC /* PreviewView.swift */,
+				43FF14A421C2AAD600B55DBB /* QuadrilateralView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -216,9 +225,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43FF14A521C2AAD600B55DBB /* QuadrilateralView.swift in Sources */,
 				435A186A21C141D60070B422 /* Quadrilateral.swift in Sources */,
 				435A186F21C14E160070B422 /* Array+Utils.swift in Sources */,
+				4353B23521C29B0B001C9CFA /* UIImageView+Utils.swift in Sources */,
 				435A186721C116A20070B422 /* TestViewController.swift in Sources */,
+				4353B23721C29B25001C9CFA /* UIImage+Drawing.swift in Sources */,
 				435A185D21C0F3C30070B422 /* BaseViewController.swift in Sources */,
 				43F894A621BEBD8200E762BC /* CameraViewController.swift in Sources */,
 				43F894A421BEBD8200E762BC /* AppDelegate.swift in Sources */,

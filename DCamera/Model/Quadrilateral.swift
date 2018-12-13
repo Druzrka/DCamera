@@ -31,6 +31,18 @@ struct Quadrilateral {
     let perimeter = topLeft.distanceTo(point: topRight) + topRight.distanceTo(point: bottomRight) + bottomRight.distanceTo(point: bottomLeft) + bottomLeft.distanceTo(point: topLeft)
     return Double(perimeter)
   }
+  
+  /// The path of the Quadrilateral as a `UIBezierPath`
+  var path: UIBezierPath {
+    let path = UIBezierPath()
+    path.move(to: topLeft)
+    path.addLine(to: topRight)
+    path.addLine(to: bottomRight)
+    path.addLine(to: bottomLeft)
+    path.close()
+    
+    return path
+  }
 }
 
 extension Quadrilateral: Comparable {
