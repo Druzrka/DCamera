@@ -10,28 +10,33 @@ import UIKit
 
 class QuadrilateralView: UIView {
   
-  var path: UIBezierPath!
+  private let lineWidth: CGFloat = 2.0
   
-  override func draw(_ rect: CGRect) {
-    super.draw(rect)
-    guard path != nil else {
-      return
-    }
-    
-    UIColor.orange.setStroke()
-    path.stroke()
+  private lazy var quadLayer: CAShapeLayer = {
+    let layer = CAShapeLayer()
+    layer.strokeColor = UIColor.orange.cgColor
+    layer.fillColor = UIColor.orange.withAlphaComponent(0.3).cgColor
+    layer.lineWidth = self.lineWidth
+    return layer
+  }()
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    layer.addSublayer(quadLayer)
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    layer.addSublayer(quadLayer)
   }
   
   func drawQuad(_ quad: Quadrilateral) {
-    path = UIBezierPath()
-    path.lineWidth = 3
+    let path = quad.path
     
-    path.move(to: quad.topLeft)
-    path.addLine(to: quad.bottomLeft)
-    path.addLine(to: quad.bottomRight)
-    path.addLine(to: quad.topRight)
-    path.close()
+    let pathAnimation = CABasicAnimation(keyPath: "path")
+    pathAnimation.duration = 0.2
+    quadLayer.add(pathAnimation, forKey: "path")
     
-    setNeedsDisplay()
+    quadLayer.path = path.cgPath
   }
 }

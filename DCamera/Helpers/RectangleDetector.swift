@@ -27,8 +27,8 @@ struct RectangleDetector {
         completion(quad)
     }
     
-    detectRequest.maximumObservations = 8
-    detectRequest.minimumConfidence = 0.6
+    detectRequest.maximumObservations = 4
+    detectRequest.minimumConfidence = 0.9
     detectRequest.minimumAspectRatio = 0.3
     
     do {

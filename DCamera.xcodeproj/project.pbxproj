@@ -23,6 +23,7 @@
 		43F894AE21BEBD8400E762BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43F894AC21BEBD8400E762BC /* LaunchScreen.storyboard */; };
 		43F894B621BEC73E00E762BC /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F894B521BEC73E00E762BC /* PreviewView.swift */; };
 		43FF14A521C2AAD600B55DBB /* QuadrilateralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FF14A421C2AAD600B55DBB /* QuadrilateralView.swift */; };
+		8AF07F7421C7CDAE0027A2FD /* UIView+CovertingCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF07F7321C7CDAE0027A2FD /* UIView+CovertingCoordinates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		43F894AF21BEBD8400E762BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43F894B521BEC73E00E762BC /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		43FF14A421C2AAD600B55DBB /* QuadrilateralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadrilateralView.swift; sourceTree = "<group>"; };
+		8AF07F7321C7CDAE0027A2FD /* UIView+CovertingCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CovertingCoordinates.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 		435A186B21C14C8C0070B422 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8AF07F7321C7CDAE0027A2FD /* UIView+CovertingCoordinates.swift */,
 				435A186C21C14CA50070B422 /* CGPoint+Utils.swift */,
 				435A186E21C14E160070B422 /* Array+Utils.swift */,
 				4353B23421C29B0B001C9CFA /* UIImageView+Utils.swift */,
@@ -227,6 +230,7 @@
 			files = (
 				43FF14A521C2AAD600B55DBB /* QuadrilateralView.swift in Sources */,
 				435A186A21C141D60070B422 /* Quadrilateral.swift in Sources */,
+				8AF07F7421C7CDAE0027A2FD /* UIView+CovertingCoordinates.swift in Sources */,
 				435A186F21C14E160070B422 /* Array+Utils.swift in Sources */,
 				4353B23521C29B0B001C9CFA /* UIImageView+Utils.swift in Sources */,
 				435A186721C116A20070B422 /* TestViewController.swift in Sources */,

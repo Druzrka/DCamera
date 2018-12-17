@@ -36,9 +36,9 @@ struct Quadrilateral {
   var path: UIBezierPath {
     let path = UIBezierPath()
     path.move(to: topLeft)
-    path.addLine(to: topRight)
-    path.addLine(to: bottomRight)
     path.addLine(to: bottomLeft)
+    path.addLine(to: bottomRight)
+    path.addLine(to: topRight)
     path.close()
     
     return path
