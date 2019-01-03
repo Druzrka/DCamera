@@ -23,6 +23,11 @@
 		43F894AE21BEBD8400E762BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43F894AC21BEBD8400E762BC /* LaunchScreen.storyboard */; };
 		43F894B621BEC73E00E762BC /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F894B521BEC73E00E762BC /* PreviewView.swift */; };
 		43FF14A521C2AAD600B55DBB /* QuadrilateralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FF14A421C2AAD600B55DBB /* QuadrilateralView.swift */; };
+		8A1DDB4C21C7DEB700084E17 /* ShutterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DDB4B21C7DEB700084E17 /* ShutterButton.swift */; };
+		8A1DDB5221C7FD8B00084E17 /* CGRect+Scaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DDB5121C7FD8B00084E17 /* CGRect+Scaling.swift */; };
+		8A1DDB5721C8019100084E17 /* AVCaptureVideoOrientation+DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DDB5621C8019100084E17 /* AVCaptureVideoOrientation+DeviceOrientation.swift */; };
+		8A1DDB5921C8059D00084E17 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DDB5821C8059D00084E17 /* PhotoViewController.swift */; };
+		8A90717621C948C60070D40F /* UIImage+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A90717521C948C60070D40F /* UIImage+Orientation.swift */; };
 		8AF07F7421C7CDAE0027A2FD /* UIView+CovertingCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF07F7321C7CDAE0027A2FD /* UIView+CovertingCoordinates.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +50,11 @@
 		43F894AF21BEBD8400E762BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43F894B521BEC73E00E762BC /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		43FF14A421C2AAD600B55DBB /* QuadrilateralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadrilateralView.swift; sourceTree = "<group>"; };
+		8A1DDB4B21C7DEB700084E17 /* ShutterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShutterButton.swift; sourceTree = "<group>"; };
+		8A1DDB5121C7FD8B00084E17 /* CGRect+Scaling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Scaling.swift"; sourceTree = "<group>"; };
+		8A1DDB5621C8019100084E17 /* AVCaptureVideoOrientation+DeviceOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVCaptureVideoOrientation+DeviceOrientation.swift"; sourceTree = "<group>"; };
+		8A1DDB5821C8059D00084E17 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		8A90717521C948C60070D40F /* UIImage+Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Orientation.swift"; sourceTree = "<group>"; };
 		8AF07F7321C7CDAE0027A2FD /* UIView+CovertingCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CovertingCoordinates.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +86,9 @@
 				435A186E21C14E160070B422 /* Array+Utils.swift */,
 				4353B23421C29B0B001C9CFA /* UIImageView+Utils.swift */,
 				4353B23621C29B25001C9CFA /* UIImage+Drawing.swift */,
+				8A1DDB5121C7FD8B00084E17 /* CGRect+Scaling.swift */,
+				8A1DDB5621C8019100084E17 /* AVCaptureVideoOrientation+DeviceOrientation.swift */,
+				8A90717521C948C60070D40F /* UIImage+Orientation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -86,6 +99,7 @@
 				43F894A521BEBD8200E762BC /* CameraViewController.swift */,
 				435A185C21C0F3C30070B422 /* BaseViewController.swift */,
 				435A186621C116A20070B422 /* TestViewController.swift */,
+				8A1DDB5821C8059D00084E17 /* PhotoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -95,6 +109,7 @@
 			children = (
 				43F894B521BEC73E00E762BC /* PreviewView.swift */,
 				43FF14A421C2AAD600B55DBB /* QuadrilateralView.swift */,
+				8A1DDB4B21C7DEB700084E17 /* ShutterButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -150,10 +165,18 @@
 				435BAFCF21BFC00700435A07 /* Storyboards */,
 				435A186B21C14C8C0070B422 /* Extensions */,
 				435A185F21C0F4420070B422 /* Helpers */,
+				8AF07F7721C7DB900027A2FD /* Constants */,
 				435BAFCE21BFBFF900435A07 /* Other */,
 				43F894AF21BEBD8400E762BC /* Info.plist */,
 			);
 			path = DCamera;
+			sourceTree = "<group>";
+		};
+		8AF07F7721C7DB900027A2FD /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,9 +254,12 @@
 				43FF14A521C2AAD600B55DBB /* QuadrilateralView.swift in Sources */,
 				435A186A21C141D60070B422 /* Quadrilateral.swift in Sources */,
 				8AF07F7421C7CDAE0027A2FD /* UIView+CovertingCoordinates.swift in Sources */,
+				8A1DDB5221C7FD8B00084E17 /* CGRect+Scaling.swift in Sources */,
 				435A186F21C14E160070B422 /* Array+Utils.swift in Sources */,
+				8A1DDB5921C8059D00084E17 /* PhotoViewController.swift in Sources */,
 				4353B23521C29B0B001C9CFA /* UIImageView+Utils.swift in Sources */,
 				435A186721C116A20070B422 /* TestViewController.swift in Sources */,
+				8A1DDB4C21C7DEB700084E17 /* ShutterButton.swift in Sources */,
 				4353B23721C29B25001C9CFA /* UIImage+Drawing.swift in Sources */,
 				435A185D21C0F3C30070B422 /* BaseViewController.swift in Sources */,
 				43F894A621BEBD8200E762BC /* CameraViewController.swift in Sources */,
@@ -242,6 +268,8 @@
 				435A186421C10A7D0070B422 /* RectangleDetector.swift in Sources */,
 				43F894B621BEC73E00E762BC /* PreviewView.swift in Sources */,
 				435A186121C0F4820070B422 /* CaptureSessionManager.swift in Sources */,
+				8A1DDB5721C8019100084E17 /* AVCaptureVideoOrientation+DeviceOrientation.swift in Sources */,
+				8A90717621C948C60070D40F /* UIImage+Orientation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

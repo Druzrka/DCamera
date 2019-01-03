@@ -11,16 +11,19 @@ import AVFoundation
 
 protocol CaputureSessionManagerDelegate: AnyObject {
   func didDetectQuad(quad: Quadrilateral?, imageSize: CGSize)
+  func didCapturePhoto(photo: UIImage)
 }
 
 class CaptureSessionManager: NSObject {
   
   private let captureSession = AVCaptureSession()
+  private let photoOutput = AVCapturePhotoOutput()
   private let outputDataQueue: DispatchQueue = {
     let queue = DispatchQueue(label: "Output data queue")
     return queue
   }()
-  let rectangeDetector = RectangleDetector()
+  
+  private let rectangeDetector = RectangleDetector()
   
   weak var delegate: CaputureSessionManagerDelegate?
   
@@ -32,11 +35,24 @@ class CaptureSessionManager: NSObject {
   }
   
   public func start() {
-    captureSession.startRunning()
+    if !captureSession.isRunning {
+      captureSession.startRunning()
+    }
   }
   
   public func stop() {
     captureSession.stopRunning()
+  }
+  
+  public func takePhoto() {
+    let photoSettings = AVCapturePhotoSettings()
+    photoSettings.isAutoStillImageStabilizationEnabled = true
+    
+    if let photoOutputConnection = self.photoOutput.connection(with: .video) {
+      photoOutputConnection.videoOrientation = AVCaptureVideoOrientation(deviceOrientation: UIDevice.current.orientation) ?? AVCaptureVideoOrientation.portrait
+    }
+    
+    photoOutput.capturePhoto(with: photoSettings, delegate: self)
   }
   
   private func setupCaptureSession() {
@@ -59,7 +75,6 @@ class CaptureSessionManager: NSObject {
   }
   
   private func setupCaptureSessionOutputs() {
-    let photoOutput = AVCapturePhotoOutput()
     let dataOutput = AVCaptureVideoDataOutput()
     
     guard
@@ -110,6 +125,22 @@ extension CaptureSessionManager: AVCaptureVideoDataOutputSampleBufferDelegate {
   
     rectangeDetector.detectRectangle(in: ciImage) { quad in
       self.delegate?.didDetectQuad(quad: quad, imageSize: ciImage.extent.size)
+    }
+  }
+}
+
+extension CaptureSessionManager: AVCapturePhotoCaptureDelegate {
+  func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+    
+    DispatchQueue.global(qos: .utility).async {
+      guard let photoData = photo.fileDataRepresentation(),
+        let image = UIImage(data: photoData) else {
+          return
+      }
+     
+      DispatchQueue.main.async {
+        self.delegate?.didCapturePhoto(photo: image.applyingPortraitOrientation())
+      }
     }
   }
 }

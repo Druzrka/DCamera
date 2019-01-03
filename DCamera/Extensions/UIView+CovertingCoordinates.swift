@@ -29,8 +29,9 @@ extension UIView {
     return imagePoint
   }
   
-  static func convertPoint(imagePoint: CGPoint, imageSize: CGSize, viewSize: CGSize) -> CGPoint {
+  func convertPoint(imagePoint: CGPoint, imageSize: CGSize) -> CGPoint {
     var viewPoint = imagePoint
+    let viewSize = self.bounds.size
 
     let ratioX = viewSize.width / imageSize.width
     let ratioY = viewSize.height / imageSize.height
@@ -45,13 +46,13 @@ extension UIView {
     return viewPoint
   }
   
-  static func converRect(fromImageRect imageRect: CGRect, imageSize: CGSize, viewSize: CGSize) -> CGRect {
+  func converRect(fromImageRect imageRect: CGRect, imageSize: CGSize, viewSize: CGSize) -> CGRect {
     
     let imageTopLeft = imageRect.origin
     let imageBottomRight = CGPoint(x: imageRect.maxX, y: imageRect.maxY)
     
-    let viewTopLeft = convertPoint(imagePoint: imageTopLeft, imageSize: imageSize, viewSize: viewSize)
-    let viewBottomRight = convertPoint(imagePoint: imageBottomRight, imageSize: imageSize, viewSize: viewSize)
+    let viewTopLeft = convertPoint(imagePoint: imageTopLeft, imageSize: imageSize)
+    let viewBottomRight = convertPoint(imagePoint: imageBottomRight, imageSize: imageSize)
     
     var viewRect: CGRect = .zero
     viewRect.origin = viewTopLeft
